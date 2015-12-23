@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+   <body style="background:black; color:white">
+    	<div id="home" >
+	    	<div class="container">
+	    		<div class="row" align="center">"
+	    			<div class="col-xs-12"> 
+	    				<img src="img/logo.png" width="100%"/>
+	    			</div>
+	    			
+	    			<div class="col-xs-12" style="padding-top:40px;" align="center">
+	    				<button class="btn btn-primary" onclick="startgame('multi')">Multi Player</button><br><br>
+						<button class="btn btn-primary" onclick="startgame('single')">Single Player</button><br><br>
+	    				<button class="btn btn-danger">Exit Game</button>
+	    			</div>
+	    		</div>
+
+	    	</div>
+    	</div>
+
+    	<div id="game" class="col-lg-12" style="display:none;position:absolute; z-index:-1;">
+	    	<div class="col-lg-6" style="margin:0;">
+	    		<h1 align="center" style="">TIC TAC TOE</h1>
+	    		<div class="row" align="center" style="margin:0" style="margin:0">
+	    			<div class="col-xs-12" style="margin:0">
+						<div class="table-responsive"  >          
+						      <table class="table table-bordered" id="g">
+
+						        <tbody>
+						          <tr style="height:130px;">
+					                <td id="a1" onclick="multiplayer('a1')"></td>
+					                <td id="a2" onclick="multiplayer('a2')"></td>
+					                <td id="a3" onclick="multiplayer('a3')"></td>
+						          </tr>
+						          <tr style="height:130px;">
+					                <td id="b1" onclick="multiplayer('b1')"></td>
+					                <td id="b2" onclick="multiplayer('b2')"></td>
+					                <td id="b3" onclick="multiplayer('b3')"></td>
+						          </tr>
+						          <tr style="height:130px;">
+					                <td id="c1" onclick="multiplayer('c1')"></td>
+					                <td id="c2" onclick="multiplayer('c2')"></td>
+					                <td id="c3" onclick="multiplayer('c3')"></td>
+						          </tr>
+						        </tbody>
+						      </table>
+						      </div>
+	    			</div>
+	    		</div>
+
+				
+				
+	    	</div>
+			
+			<div class="col-lg-6" style="margin-top:70px;">
+				<div class="col-lg-6">
+
+					
+					<div class="center button col-lg-12" align="center" style="border:1px solid lightgray;padding:10px;height:260px;text-align:left;font-size:20px;">
+						<div class="col-lg-12" style="height:87px;">
+							 <p id="you"></p>
+						</div>
+						<div class="col-lg-12" style="height:87px;">
+							<p id="cmp"></p>
+						</div>
+						<div class="col-lg-12" style="height:87px;">
+							<p id="draw"></p>
+						</div>
+					</div>
+					
+					<div class="center button col-lg-12" align="center" style="border:1px solid lightgray;padding:10px;">
+						<div class="col-lg-12" style="padding-bottom:20px;">
+							<button class="btn btn-primary col-lg-12" onclick="restart()">Restart</button>
+						</div>
+						<div class="col-lg-12" style="padding-bottom:20px;">
+							<button class="btn btn-success col-lg-12" onclick="home()">Home</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			
+	    </div>
+		
+
+
+		<div id="score" style="left:18%;"> 
+			<p id="win" align="center" > </p>
+		</div>
+
+    </body>
+</html>
