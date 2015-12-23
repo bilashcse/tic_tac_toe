@@ -1,22 +1,25 @@
-
-var init = function () {
-	var val=$( window ).width();
-	//alert(val)
-    console.log("init() called");
-	console.log("Tic Tac Toe");
-	console.log(localStorage.user);
-	console.log(localStorage.computer);
-	console.log(localStorage.draw);
-	
+function initial_score(){
 	var c=localStorage.computer;
 	var u=localStorage.user;
 	var d=localStorage.draw;
-	
+	if(!localStorage.computer)
+	{
+		c = 0;
+	}
+	else if(!localStorage.user){
+		u = 0;
+	}
+	else if(!localStorage.draw){
+		d = 0;
+	}
 
-	$("#you").text("You ="+u);
-	$("#cmp").text("Computer ="+c);
-	$("#draw").text("Drawn ="+d);
-
+	$("#you").text("Win : "+u);
+	$("#cmp").text("Lost : "+c);
+	$("#draw").text("Draw : "+d);
+}
+var init = function () {
+	var val=$( window ).width();
+	initial_score();
 
 };
 
@@ -38,10 +41,11 @@ var turn = 0;
 function multiplayer(obj)
 {
 
-	$("#you").text("You ="+localStorage.user);
-	$("#cmp").text("Computer ="+localStorage.computer);
-	$("#draw").text("Drawn ="+localStorage.draw);
-	console.log(obj)
+	//$("#you").text("You : "+localStorage.user);
+	//$("#cmp").text("Computer : "+localStorage.computer);
+	//$("#draw").text("Drawn : "+localStorage.draw);
+	//console.log(obj)
+	initial_score();
 	if(game=="multi")
 	{
 		if(x%2 == 1)
@@ -164,7 +168,7 @@ function checkresult(){
 				if (localStorage.user) 
 				{
 					localStorage.user = Number(localStorage.user)+1;
-					$("#you").text("Computer ="+localStorage.you);
+					$("#you").text("Lost : "+localStorage.you);
 				} 
 				else 
 				{
@@ -173,7 +177,7 @@ function checkresult(){
 			}
 		}
 		$("#score").css({"display":"block"});
-		$("#win").text("You win = "+localStorage.user);
+		$("#win").text("You win : "+localStorage.user);
 	}
 	else if((a1 == a2 && a1 == a3 && (a1 == "o")) || (b1 == b2 && b1 == b3 && (b1 == "o")) || (c1 == c2 && c1 == c3 && (c1 == "o")) || (a1 == b1 && a1 == c1 && (a1 == "o")) || (a2 == b2 && a2 == c2 && (a2 == "o")) || (a3 == b3 && a3 == c3 && (a3 == "o")) || (a1 == b2 && a1 == c3 && (a1 == "o")) || (a3 == b2 && a3 == c1 && (a3 == "o")))
 	{
@@ -184,7 +188,7 @@ function checkresult(){
 				if (localStorage.computer) 
 				{
 					localStorage.computer = Number(localStorage.computer)+1;
-					$("#computer").text("Computer ="+localStorage.computer);
+					$("#computer").text("Lost : "+localStorage.computer);
 				} 
 				else 
 				{
@@ -192,7 +196,7 @@ function checkresult(){
 				}
 			}
 		$("#score").css({"display":"block"});
-		$("#win").text("Computer win = "+localStorage.computer);
+		$("#win").text("Computer win : "+localStorage.computer);
 	}
 	else if(((a1 == "x") || (a1 == "o")) && ((b1 == "x") || (b1 == "o")) && ((c1 == "x") || (c1 == "o")) && ((a2 == "x") || (a2 == "o")) && ((b2 == "x") || (b2 == "o")) && ((c2 == "x") || (c2 == "o")) && ((a3 == "x") || (a3 == "o")) && ((b3 == "x") || (b3 == "o")) && ((c3 == "x") || (c3 == "o"))) {
 		win=1;
@@ -203,7 +207,7 @@ function checkresult(){
 				if (localStorage.draw) 
 				{
 					localStorage.draw = Number(localStorage.draw)+1;
-					$("#draw").text("Drawn ="+localStorage.draw);
+					$("#draw").text("Draw : "+localStorage.draw);
 				} 
 				else 
 				{
@@ -211,7 +215,7 @@ function checkresult(){
 				}
 			}		
 		$("#score").css({"display":"block"});
-		$("#win").text("Match Tie = "+localStorage.draw);
+		$("#win").text("Match Tie : "+localStorage.draw);
 	}
 	
 }

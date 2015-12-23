@@ -3,6 +3,9 @@ td{
 	font-size: 79px;
 	text-align: center;
 }
+.button_game{
+	width: 285px;
+}
 
 #home{
 	height: 643px;
